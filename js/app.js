@@ -6,9 +6,10 @@ function icon(name, size=20) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 }
 
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return [];}}
 var state={page:'today',dayIso:null,expandedKey:null,foodFilter:'all',
-  costcoChecked:new Set(JSON.parse(localStorage.getItem('ck')||'[]')),
-  booksDone:new Set(JSON.parse(localStorage.getItem('bd')||'[]'))};
+  costcoChecked:new Set(lsGet('ck')),
+  booksDone:new Set(lsGet('bd'))};
 
 function todayIso(){var d=new Date(),s=d.toISOString().slice(0,10);var days=DATA.days;if(s<days[0].iso)return days[0].iso;if(s>days[days.length-1].iso)return days[days.length-1].iso;return s;}
 function currentDay(){var t=state.dayIso||todayIso();return DATA.days.find(function(d){return d.iso===t;})||DATA.days[0];}
@@ -328,8 +329,10 @@ function initApp(){
       lockEl.style.display='none';
       appEl.style.display='';
       initApp();
+    }).catch(function(){
+      sessionStorage.removeItem('unlocked');
     });
-    return;
+    // intentionally no return — always attach PIN listeners below as fallback
   }
 
   function updateDots(){
