@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Mockups — Oahu Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#faf6f0; --bg-card:#fff; --bg-soft:#f4ede0;
+  --ink:#2d2a26; --ink-soft:#6b6660; --ink-faint:#7a7470;
+  --line:#e8dfd0; --line-soft:#f0e8d8;
+  --serif:"Fraunces","Cormorant Garamond",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e0d8;font-family:var(--sans);font-size:15px;color:var(--ink);-webkit-font-smoothing:antialiased;padding:24px 16px 48px}
+
+/* — LAYOUT — */
+.phone{width:100%;max-width:390px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b6660;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:"";flex:1;height:1px;background:#c8bfb0}
+.section-label:first-child{margin-top:0}
+.option-note{font-size:12px;color:#7a7470;margin-bottom:16px;line-height:1.5;font-family:var(--serif);font-style:italic}
+
+/* — SHARED CARD BASE — */
+.tl{display:flex;flex-direction:column;gap:0}
+.ev{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:8px 0;position:relative}
+.ev:not(:last-child)::before{content:"";position:absolute;left:58px;top:34px;bottom:-8px;width:1.5px;background:linear-gradient(to bottom,var(--line) 55%,transparent)}
+.evtime{font-family:var(--serif);font-size:12px;font-weight:500;text-align:right;color:var(--ink-soft);padding-top:12px;letter-spacing:-.01em}
+.evtime small{font-size:9px;letter-spacing:.1em;color:var(--ink-faint);display:block;margin-top:1px}
+.evbody{border-radius:13px;background:var(--bg-card);border:.5px solid var(--line);padding:11px 13px;position:relative;overflow:hidden}
+.evrow{display:flex;align-items:center;gap:9px}
+.evicon{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.evtitle{font-size:13.5px;font-weight:500;flex:1;line-height:1.3;color:var(--ink)}
+.evcat{font-size:10px;font-weight:500;margin-top:5px;padding-left:39px;color:var(--ink-faint);letter-spacing:.01em}
+
+/* ===== OPTION A — Accent bar + icon tint (minimal) ===== */
+.optA .evbody::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:0}
+
+.optA .transit .evbody::before{background:#0369a1}
+.optA .transit .evicon{background:#e0f2fe;color:#0369a1}
+
+.optA .food .evbody::before{background:#c2410c}
+.optA .food .evicon{background:#fff7ed;color:#c2410c}
+
+.optA .activity .evbody::before{background:#0d9488}
+.optA .activity .evicon{background:#d1fae5;color:#0d9488}
+
+.optA .culture .evbody::before{background:#6d28d9}
+.optA .culture .evicon{background:#ede9fe;color:#6d28d9}
+
+.optA .rest .evbody::before{background:#7c7470}
+.optA .rest .evicon{background:#f4ede0;color:#7c7470}
+
+.optA .task .evbody::before{background:#b45309}
+.optA .task .evicon{background:#fef3c7;color:#b45309}
+
+.optA .urgent .evbody::before{background:#dc2626}
+.optA .urgent .evicon{background:#fee2e2;color:#dc2626}
+
+/* ===== OPTION B — Full card tint (vivid) ===== */
+.optB .evbody::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:0}
+
+.optB .transit .evbody{background:#f0f8ff;border-color:#bae6fd}
+.optB .transit .evbody::before{background:#0369a1}
+.optB .transit .evicon{background:#bae6fd;color:#0369a1}
+
+.optB .food .evbody{background:#fff8f0;border-color:#fed7aa}
+.optB .food .evbody::before{background:#c2410c}
+.optB .food .evicon{background:#fed7aa;color:#c2410c}
+
+.optB .activity .evbody{background:#f0fdf9;border-color:#99f6e4}
+.optB .activity .evbody::before{background:#0d9488}
+.optB .activity .evicon{background:#99f6e4;color:#0d9488}
+
+.optB .culture .evbody{background:#f5f3ff;border-color:#ddd6fe}
+.optB .culture .evbody::before{background:#6d28d9}
+.optB .culture .evicon{background:#ddd6fe;color:#6d28d9}
+
+.optB .rest .evbody{background:#faf6f0;border-color:#e8dfd0}
+.optB .rest .evbody::before{background:#9e9490}
+.optB .rest .evicon{background:#e8dfd0;color:#7a7470}
+
+.optB .task .evbody{background:#fffbeb;border-color:#fde68a}
+.optB .task .evbody::before{background:#b45309}
+.optB .task .evicon{background:#fde68a;color:#b45309}
+
+.optB .urgent .evbody{background:#fff1f2;border-color:#fecdd3}
+.optB .urgent .evbody::before{background:#dc2626}
+.optB .urgent .evicon{background:#fecdd3;color:#dc2626}
+
+/* ===== OPTION C — Category pill badge ===== */
+.optC .evbody{padding-bottom:10px}
+.optC .evbody::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:0;background:var(--line)}
+.optC .badge-pill{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:999px;margin-top:7px;margin-left:39px;letter-spacing:.03em}
+
+.optC .transit .evicon{background:#e0f2fe;color:#0369a1}
+.optC .transit .badge-pill{background:#e0f2fe;color:#0369a1;border:.5px solid #bae6fd}
+
+.optC .food .evicon{background:#fff7ed;color:#c2410c}
+.optC .food .badge-pill{background:#fff7ed;color:#c2410c;border:.5px solid #fed7aa}
+
+.optC .activity .evicon{background:#d1fae5;color:#0d9488}
+.optC .activity .badge-pill{background:#d1fae5;color:#0d9488;border:.5px solid #99f6e4}
+
+.optC .culture .evicon{background:#ede9fe;color:#6d28d9}
+.optC .culture .badge-pill{background:#ede9fe;color:#6d28d9;border:.5px solid #ddd6fe}
+
+.optC .rest .evicon{background:#f4ede0;color:#7a7470}
+.optC .rest .badge-pill{background:#f4ede0;color:#7a7470;border:.5px solid #e8dfd0}
+
+.optC .task .evicon{background:#fef3c7;color:#b45309}
+.optC .task .badge-pill{background:#fef3c7;color:#b45309;border:.5px solid #fde68a}
+
+.optC .urgent .evicon{background:#fee2e2;color:#dc2626}
+.optC .urgent .badge-pill{background:#fee2e2;color:#dc2626;border:.5px solid #fca5a5}
+
+/* — LEGEND — */
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.lchip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.02em}
+.lchip.transit{background:#e0f2fe;color:#0369a1;border:.5px solid #bae6fd}
+.lchip.food{background:#fff7ed;color:#c2410c;border:.5px solid #fed7aa}
+.lchip.activity{background:#d1fae5;color:#0d9488;border:.5px solid #99f6e4}
+.lchip.culture{background:#ede9fe;color:#6d28d9;border:.5px solid #ddd6fe}
+.lchip.rest{background:#f4ede0;color:#7a7470;border:.5px solid #e8dfd0}
+.lchip.task{background:#fef3c7;color:#b45309;border:.5px solid #fde68a}
+.lchip.urgent{background:#fee2e2;color:#dc2626;border:.5px solid #fca5a5}
+</style>
+</head>
+<body>
+<div class="phone">
+
+<!-- LEGEND -->
+<div class="section-label">Category key — all three options</div>
+<div class="legend">
+  <span class="lchip transit">✈ Transit</span>
+  <span class="lchip food">🍜 Food & Drink</span>
+  <span class="lchip activity">🏄 Activity</span>
+  <span class="lchip culture">🏛 Culture</span>
+  <span class="lchip rest">🛏 Rest</span>
+  <span class="lchip task">🛒 Errand</span>
+  <span class="lchip urgent">⚠ Urgent</span>
+</div>
+
+<!-- ====== OPTION A ====== -->
+<div class="section-label">Option A — Accent bar + icon tint</div>
+<p class="option-note">Subtle. Cards stay clean white — only the left stripe and icon background change. Easiest to read, least visual noise.</p>
+
+<div class="tl optA">
+
+  <div class="ev transit">
+    <div class="evtime">8:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🚗</div><div class="evtitle">Pick up Hertz at Hyatt Regency</div></div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">8:45<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">☕</div><div class="evtitle">Breakfast · Heavenly Island Lifestyle</div></div>
+    </div>
+  </div>
+
+  <div class="ev activity">
+    <div class="evtime">10:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🏖</div><div class="evtitle">Hanauma Bay — opening time</div></div>
+    </div>
+  </div>
+
+  <div class="ev culture">
+    <div class="evtime">2:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚓</div><div class="evtitle">USS Arizona Memorial</div></div>
+    </div>
+  </div>
+
+  <div class="ev task">
+    <div class="evtime">4:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛒</div><div class="evtitle">Costco Iwilei — stock-up run</div></div>
+    </div>
+  </div>
+
+  <div class="ev rest">
+    <div class="evtime">6:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛁</div><div class="evtitle">Hotel · shower & rest</div></div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">7:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🍽</div><div class="evtitle">Dinner · Nobu Honolulu</div></div>
+    </div>
+  </div>
+
+  <div class="ev urgent">
+    <div class="evtime">Now</div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚠️</div><div class="evtitle">BOOK HANAUMA BAY NOW!</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ====== OPTION B ====== -->
+<div class="section-label">Option B — Full card background tint</div>
+<p class="option-note">Vivid. Each card carries its own color — you can scan the whole day's rhythm at a glance. Higher contrast, more energetic feel.</p>
+
+<div class="tl optB">
+
+  <div class="ev transit">
+    <div class="evtime">8:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🚗</div><div class="evtitle">Pick up Hertz at Hyatt Regency</div></div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">8:45<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">☕</div><div class="evtitle">Breakfast · Heavenly Island Lifestyle</div></div>
+    </div>
+  </div>
+
+  <div class="ev activity">
+    <div class="evtime">10:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🏖</div><div class="evtitle">Hanauma Bay — opening time</div></div>
+    </div>
+  </div>
+
+  <div class="ev culture">
+    <div class="evtime">2:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚓</div><div class="evtitle">USS Arizona Memorial</div></div>
+    </div>
+  </div>
+
+  <div class="ev task">
+    <div class="evtime">4:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛒</div><div class="evtitle">Costco Iwilei — stock-up run</div></div>
+    </div>
+  </div>
+
+  <div class="ev rest">
+    <div class="evtime">6:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛁</div><div class="evtitle">Hotel · shower & rest</div></div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">7:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🍽</div><div class="evtitle">Dinner · Nobu Honolulu</div></div>
+    </div>
+  </div>
+
+  <div class="ev urgent">
+    <div class="evtime">Now</div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚠️</div><div class="evtitle">BOOK HANAUMA BAY NOW!</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ====== OPTION C ====== -->
+<div class="section-label">Option C — Category pill label</div>
+<p class="option-note">Wordy but clear. Cards stay white, each event gets a labeled color chip. Best if you want to know exactly what type something is without guessing from color alone.</p>
+
+<div class="tl optC">
+
+  <div class="ev transit">
+    <div class="evtime">8:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🚗</div><div class="evtitle">Pick up Hertz at Hyatt Regency</div></div>
+      <div class="badge-pill">✈ Transit</div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">8:45<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">☕</div><div class="evtitle">Breakfast · Heavenly Island Lifestyle</div></div>
+      <div class="badge-pill">🍜 Food & Drink</div>
+    </div>
+  </div>
+
+  <div class="ev activity">
+    <div class="evtime">10:00<small>AM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🏖</div><div class="evtitle">Hanauma Bay — opening time</div></div>
+      <div class="badge-pill">🏄 Activity</div>
+    </div>
+  </div>
+
+  <div class="ev culture">
+    <div class="evtime">2:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚓</div><div class="evtitle">USS Arizona Memorial</div></div>
+      <div class="badge-pill">🏛 Culture</div>
+    </div>
+  </div>
+
+  <div class="ev task">
+    <div class="evtime">4:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛒</div><div class="evtitle">Costco Iwilei — stock-up run</div></div>
+      <div class="badge-pill">🛒 Errand</div>
+    </div>
+  </div>
+
+  <div class="ev rest">
+    <div class="evtime">6:00<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🛁</div><div class="evtitle">Hotel · shower & rest</div></div>
+      <div class="badge-pill">🛏 Rest</div>
+    </div>
+  </div>
+
+  <div class="ev food">
+    <div class="evtime">7:30<small>PM</small></div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">🍽</div><div class="evtitle">Dinner · Nobu Honolulu</div></div>
+      <div class="badge-pill">🍜 Food & Drink</div>
+    </div>
+  </div>
+
+  <div class="ev urgent">
+    <div class="evtime">Now</div>
+    <div class="evbody">
+      <div class="evrow"><div class="evicon">⚠️</div><div class="evtitle">BOOK HANAUMA BAY NOW!</div></div>
+      <div class="badge-pill">⚠ Urgent</div>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- /phone -->
+</body>
+</html>
