@@ -108,7 +108,7 @@ display:flex;align-items:center;justify-content:center}
 .tl-event.open .evchev{transform:rotate(180deg)}
 .evdesc{font-size:12.5px;color:var(--ink-soft);margin-top:5px;padding-left:40px;line-height:1.5}
 
-/* HINT PILLS */
+/* HINT PILLS — shown collapsed, act as preview */
 .hintrow{display:flex;gap:4px;margin-top:8px;padding-left:40px;flex-wrap:wrap}
 .hint{display:inline-flex;align-items:center;gap:3px;
 font-size:10px;font-weight:500;padding:2px 7px;
@@ -123,7 +123,7 @@ border-radius:999px;border:.5px solid;letter-spacing:.01em}
 .h-book{background:#fce8ef;color:#5e1933;border-color:#f4abc3}
 .h-optional{background:var(--line-soft);color:var(--ink-faint);border-color:var(--line)}
 
-/* BADGE PILLS */
+/* BADGE PILLS — category tags */
 .badgerow{display:flex;gap:4px;margin-top:5px;padding-left:40px;flex-wrap:wrap}
 .badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;
 padding:2px 7px;border-radius:999px;font-weight:500;
@@ -149,7 +149,7 @@ font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:4px}
 .detlbl.note{color:#6b4d05}
 .detval{font-size:12.5px;line-height:1.55;color:var(--ink)}
 .detval ul{padding-left:14px;margin-top:3px}
-.detval li{margin-bottom:2px;list-style:"\2192 ";padding-left:3px}
+.detval li{margin-bottom:2px;list-style:"→ ";padding-left:3px}
 
 /* BOTTOM NAV */
 .botnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);
@@ -294,8 +294,8 @@ border-bottom:.5px solid var(--line-soft);cursor:pointer;font-size:14.5px;
 padding:2px 8px;border-radius:999px;margin-top:7px;margin-left:40px;letter-spacing:.03em}
 
 .cat-transit .evbody{background:#f0f8ff;border-color:#bae6fd}
+.cat-transit .evbody::before,.cat-transit.tl-event.open .evbody{border-color:#0369a1}
 .cat-transit .evbody::before{background:#0369a1}
-.cat-transit.tl-event.open .evbody{border-color:#0369a1}
 .cat-transit .evicon{background:#bae6fd;color:#0369a1}
 .cat-transit .cat-pill{background:#e0f2fe;color:#0369a1;border:.5px solid #bae6fd}
 
@@ -347,7 +347,6 @@ display:flex;flex-direction:column;align-items:center;justify-content:center;
 padding:32px 24px calc(32px + env(safe-area-inset-bottom));
 transition:opacity .35s ease, transform .35s ease;
 overflow:hidden;
-touch-action:none;
 }
 #lockscreen.unlocking{opacity:0;transform:scale(1.04);pointer-events:none}
 .lock-icon{
@@ -377,7 +376,7 @@ display:flex;flex-direction:column;align-items:center;justify-content:center;gap
 transition:transform .1s ease, background .1s, box-shadow .1s;
 -webkit-tap-highlight-color:transparent;
 box-shadow:0 1px 3px rgba(0,0,0,.05);
-user-select:none;
+user-select:none;touch-action:manipulation;
 }
 .pin-key:active{transform:scale(.94);background:var(--bg-soft)}
 .pin-key .key-sub{font-family:var(--sans);font-size:8px;letter-spacing:.12em;
