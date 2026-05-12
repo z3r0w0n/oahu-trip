@@ -32,22 +32,22 @@ function categoryFor(e){
 
 var CAT_LABELS={transit:'✈ Transit',food:'🍜 Food & Drink',activity:'🏄 Activity',culture:'🏛 Culture',rest:'🛏 Rest',task:'🛒 Errand',urgent:'⚠ Urgent'};
 
-// Render helpers
-function hintsFor(e){
-  var h=[];
-  if(e.outfit) h.push('<span class="hint h-outfit">'+icon('shirt',12)+' Outfit</span>');
-  if(e.weather) h.push('<span class="hint h-weather">'+icon('cloud',12)+' Weather</span>');
-  if(e.alternates&&e.alternates.length) h.push('<span class="hint h-alt">'+icon('replace',12)+' Alternatives</span>');
+
+function pillsFor(e,evCat){
+  var items='<span class="cat-pill">'+CAT_LABELS[evCat]+'</span>';
+  if(e.outfit) items+='<span class="hint h-outfit">'+icon('shirt',12)+' Outfit</span>';
+  if(e.weather) items+='<span class="hint h-weather">'+icon('cloud',12)+' Weather</span>';
+  if(e.alternates&&e.alternates.length) items+='<span class="hint h-alt">'+icon('replace',12)+' Alternatives</span>';
   if(e.badge){
     var bc='h-note';
     if(e.badge==='Gentle pace') bc='h-gentle';
     else if(e.badge==='Do this NOW'||e.badge==='Urgent') bc='h-urgent';
     else if(e.badge==='Pre-booked'||e.badge==='Book ahead') bc='h-book';
     else if(e.badge==='Optional') bc='h-optional';
-    h.push('<span class="hint '+bc+'">'+icon('info-circle',12)+' '+e.badge+'</span>');
+    items+='<span class="hint '+bc+'">'+icon('info-circle',12)+' '+e.badge+'</span>';
   }
-  if(e.optional&&!e.badge) h.push('<span class="hint h-optional">'+icon('info-circle',12)+' Optional</span>');
-  return h.length?'<div class="hintrow">'+h.join('')+'</div>':'';
+  if(e.optional&&!e.badge) items+='<span class="hint h-optional">'+icon('info-circle',12)+' Optional</span>';
+  return '<div class="hintrow">'+items+'</div>';
 }
 
 function renderEvent(e,i,dayIso){
@@ -79,8 +79,7 @@ function renderEvent(e,i,dayIso){
     +(hasDetails?'<div class="evchev">'+icon('chevron-down',16)+'</div>':'')
     +'</div>'
     +(e.details?'<div class="evdesc">'+e.details+'</div>':'')
-    +'<div class="cat-pill">'+CAT_LABELS[evCat]+'</div>'
-    +hintsFor(e)
+    +pillsFor(e,evCat)
     +details
     +'</div></div>';
 }
