@@ -347,7 +347,6 @@ display:flex;flex-direction:column;align-items:center;justify-content:center;
 padding:32px 24px calc(32px + env(safe-area-inset-bottom));
 transition:opacity .35s ease, transform .35s ease;
 overflow:hidden;
-touch-action:none;
 }
 #lockscreen.unlocking{opacity:0;transform:scale(1.04);pointer-events:none}
 .lock-icon{
@@ -377,7 +376,7 @@ display:flex;flex-direction:column;align-items:center;justify-content:center;gap
 transition:transform .1s ease, background .1s, box-shadow .1s;
 -webkit-tap-highlight-color:transparent;
 box-shadow:0 1px 3px rgba(0,0,0,.05);
-user-select:none;
+user-select:none;touch-action:manipulation;
 }
 .pin-key:active{transform:scale(.94);background:var(--bg-soft)}
 .pin-key .key-sub{font-family:var(--sans);font-size:8px;letter-spacing:.12em;
