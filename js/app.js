@@ -13,6 +13,24 @@ var state={page:'today',dayIso:null,expandedKey:null,foodFilter:'all',
 function todayIso(){var d=new Date(),s=d.toISOString().slice(0,10);var days=DATA.days;if(s<days[0].iso)return days[0].iso;if(s>days[days.length-1].iso)return days[days.length-1].iso;return s;}
 function currentDay(){var t=state.dayIso||todayIso();return DATA.days.find(function(d){return d.iso===t;})||DATA.days[0];}
 
+// Map each event to one of 7 display categories
+function categoryFor(e){
+  var cat=e.category||'';
+  var ic=(e.icon||'').replace('ti-','');
+  if(cat==='booking'||e.badge==='Do this NOW'||e.badge==='Urgent') return 'urgent';
+  if(cat==='transit'||['plane-arrival','plane-departure','plane','key','parking','steering-wheel'].includes(ic)) return 'transit';
+  if(['car'].includes(ic)&&cat!=='food') return 'transit';
+  if(cat==='food'||cat==='dessert'||['bowl','coffee','fish','cup','tools-kitchen-2','bread','glass-cocktail','truck','snowflake','meat','apple'].includes(ic)) return 'food';
+  if(cat==='beach'||cat==='nature'||cat==='hike'||cat==='view'||['beach','swimming','walk','plant','wind','droplets','sunset','mountain'].includes(ic)) return 'activity';
+  if(cat==='culture'||cat==='free'||['building-monument','temple','anchor','ship','palm-tree','flame'].includes(ic)) return 'culture';
+  if(cat==='rest'||['bed','bath','zzz','moon'].includes(ic)) return 'rest';
+  if(cat==='shopping'||['shopping-cart','shopping-bag','luggage'].includes(ic)) return 'task';
+  if(['building','building-castle','alarm'].includes(ic)) return 'rest';
+  return 'transit';
+}
+
+var CAT_LABELS={transit:'✈ Transit',food:'🍜 Food & Drink',activity:'🏄 Activity',culture:'🏛 Culture',rest:'🛏 Rest',task:'🛒 Errand',urgent:'⚠ Urgent'};
+
 // Render helpers
 function hintsFor(e){
   var h=[];
@@ -37,6 +55,7 @@ function renderEvent(e,i,dayIso){
   var tParts=e.time.match(/(\d+:\d+)\s*(AM|PM)/i)||['','',''];
   var hasDetails=e.outfit||e.weather||(e.alternates&&e.alternates.length);
   var iconName=(e.icon||'circle').replace('ti-','');
+  var evCat=categoryFor(e);
 
   var details='';
   if(hasDetails){
@@ -50,7 +69,7 @@ function renderEvent(e,i,dayIso){
     details='<div class="evdetails"><div class="det-inner"><div class="det-sep"></div>'+blocks+'</div></div>';
   }
 
-  return '<div class="tl-event'+(open?' open':'')+'" data-key="'+key+'">'
+  return '<div class="tl-event cat-'+evCat+(open?' open':'')+'" data-key="'+key+'">'
     +'<div class="evtime">'+tParts[1]+'<small>'+tParts[2]+'</small></div>'
     +'<div class="evbody">'
     +'<div class="evrow">'
@@ -59,6 +78,7 @@ function renderEvent(e,i,dayIso){
     +(hasDetails?'<div class="evchev">'+icon('chevron-down',16)+'</div>':'')
     +'</div>'
     +(e.details?'<div class="evdesc">'+e.details+'</div>':'')
+    +'<div class="cat-pill">'+CAT_LABELS[evCat]+'</div>'
     +hintsFor(e)
     +details
     +'</div></div>';
