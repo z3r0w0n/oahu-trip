@@ -1,0 +1,1397 @@
+{
+  "title": "Aloha, Oahu",
+  "subtitle": "May 11 – 19, 2026",
+  "hotel": "Bamboo Waikiki",
+  "departure": "Tue May 19 · 1:10 PM",
+  "tagline": "A young couple's easy days adventure",
+  "hertz": {
+    "pickup": "Tue May 12 · 8:00 AM",
+    "return": "Mon May 18 · 8:00 PM",
+    "location": "Hyatt Regency Waikiki",
+    "cost": "$251 weekly"
+  },
+  "quickContacts": [
+    {
+      "name": "Bamboo Waikiki",
+      "type": "hotel",
+      "icon": "ti-building"
+    },
+    {
+      "name": "Hertz @ Hyatt",
+      "type": "car",
+      "phone": "808-971-3535",
+      "icon": "ti-car"
+    },
+    {
+      "name": "Uber / Lyft",
+      "type": "rideshare",
+      "icon": "ti-steering-wheel"
+    },
+    {
+      "name": "Emergency 911",
+      "type": "emergency",
+      "phone": "911",
+      "icon": "ti-emergency-bed"
+    }
+  ],
+  "days": [
+    {
+      "date": "Mon May 11",
+      "iso": "2026-05-11",
+      "label": "Arrival",
+      "theme": "Late arrival · Rest up",
+      "color": "blue",
+      "car": false,
+      "weather": {
+        "high": "80°F",
+        "rain": "15%",
+        "note": "Warm humid evening"
+      },
+      "summary": "Land at 10:28 PM. Just get to the hotel and rest.",
+      "events": [
+        {
+          "time": "10:28 PM",
+          "title": "Land at HNL",
+          "icon": "ti-plane-arrival",
+          "category": "transit",
+          "details": "Clear customs, collect baggage. Allow 30–40 min.",
+          "outfit": "Travel clothes · slip-ons",
+          "weather": "Warm & humid · light layer only"
+        },
+        {
+          "time": "11:05 PM",
+          "title": "Rideshare to Bamboo Waikiki",
+          "icon": "ti-car",
+          "details": "Uber or Lyft from arrivals · ~25 min · ~$25",
+          "alternates": [
+            "Pre-book SuperShuttle if heavy bags"
+          ]
+        },
+        {
+          "time": "11:35 PM",
+          "title": "Check in & unpack",
+          "icon": "ti-building",
+          "details": "Ask for a high floor — ocean views if available."
+        },
+        {
+          "time": "11:50 PM",
+          "title": "Late bite on Kalakaua Ave",
+          "icon": "ti-bowl",
+          "category": "food",
+          "details": "Marukame Udon — open late, cheap, authentic.",
+          "alternates": [
+            "Waikiki Brewing Co for something heartier",
+            "Snacks from hotel if exhausted"
+          ],
+          "outfit": "Casual"
+        },
+        {
+          "time": "12:20 AM",
+          "title": "Waiola Shave Ice (optional)",
+          "icon": "ti-snowflake",
+          "category": "dessert",
+          "optional": true,
+          "details": "First taste of Hawaii. Get li hing mui + ice cream base.",
+          "alternates": [
+            "Skip if tired — sleep is more important tonight"
+          ]
+        },
+        {
+          "time": "12:45 AM",
+          "title": "Sleep",
+          "icon": "ti-zzz",
+          "details": "Big week starts tomorrow!"
+        }
+      ]
+    },
+    {
+      "date": "Tue May 12",
+      "iso": "2026-05-12",
+      "label": "Day 1",
+      "theme": "Waikiki + Costco run",
+      "color": "green",
+      "car": true,
+      "weather": {
+        "high": "80°F",
+        "rain": "25%",
+        "note": "Brief showers clear fast"
+      },
+      "summary": "Pick up the car, stock up at Costco, then dive into Waikiki Beach.",
+      "events": [
+        {
+          "time": "8:00 AM",
+          "title": "Pick up Hertz at Hyatt Regency",
+          "icon": "ti-key",
+          "category": "transit",
+          "badge": "Car pickup",
+          "details": "Steps from Bamboo on Kalakaua Ave. Confirm car category (compact SUV / midsize). Decline CDW if credit card covers it.",
+          "outfit": "Smart-casual for Hertz pickup",
+          "weather": "Warm morning · sunglasses ready"
+        },
+        {
+          "time": "8:30 AM",
+          "title": "Breakfast · Heavenly Island Lifestyle",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Acai bowls, fresh fruit plates, avocado toast. Arrive early — very popular.",
+          "alternates": [
+            "Eggs n Things for classic Hawaiian",
+            "Hotel grab-and-go if tight on time"
+          ],
+          "outfit": "Light shorts + t-shirt · sandals"
+        },
+        {
+          "time": "10:00 AM",
+          "title": "Costco Iwilei — stock-up run",
+          "icon": "ti-shopping-cart",
+          "category": "shopping",
+          "badge": "Costco",
+          "details": "525 Alakawa St · ~12 min drive · Opens 10am sharp. Reef-safe sunscreen, water, ginger chews, fruit, macadamia chocolates.",
+          "outfit": "Casual"
+        },
+        {
+          "time": "11:15 AM",
+          "title": "Back to Bamboo — unload & pack cooler",
+          "icon": "ti-building",
+          "details": "Stock fridge, load cooler for the week, keep fruit accessible."
+        },
+        {
+          "time": "11:45 AM",
+          "title": "Waikiki Beach",
+          "icon": "ti-beach",
+          "category": "beach",
+          "details": "Swim, bodyboard, surfboard rental or beginner lesson (~$40–60).",
+          "alternates": [
+            "If light rain: Royal Hawaiian Center covered arcade"
+          ],
+          "outfit": "Swimsuit + rash guard · flip flops · hat · reef-safe sunscreen",
+          "weather": "Brief showers pass in minutes · UV still high under cloud"
+        },
+        {
+          "time": "1:30 PM",
+          "title": "Lunch · Ono Seafood",
+          "icon": "ti-fish",
+          "category": "food",
+          "details": "Fresh poke, local favourite. Queue worth it.",
+          "alternates": [
+            "Rainbow Drive-In for plate lunch",
+            "Tucker & Bevvy for gourmet sandwiches"
+          ]
+        },
+        {
+          "time": "2:30 PM",
+          "title": "Island Vintage Coffee",
+          "icon": "ti-cup",
+          "category": "food",
+          "details": "Sunrise acai bowl + shave ice. Open-air Royal Hawaiian Center setting.",
+          "alternates": [
+            "Bogart's Café for quieter spot"
+          ]
+        },
+        {
+          "time": "3:00 PM",
+          "title": "Royal Hawaiian Hotel · Pink Palace",
+          "icon": "ti-building-castle",
+          "details": "Free to walk through historic 1927 lobby. Mai Tai Bar on the beach — she gets mocktail, you get original Mai Tai.",
+          "outfit": "Smart-casual over swimsuit",
+          "badge": "Gentle pace"
+        },
+        {
+          "time": "4:30 PM",
+          "title": "Waikiki Market fruit haul",
+          "icon": "ti-apple",
+          "category": "shopping",
+          "details": "Exotic fruits: white pineapple, apple banana, dragon fruit, lychee, rambutan. May = mango season starting!"
+        },
+        {
+          "time": "6:00 PM",
+          "title": "Kuhio Beach Torch Lighting & Hula Show",
+          "icon": "ti-flame",
+          "category": "free",
+          "badge": "Free",
+          "details": "Right on the beach. Ancient Hawaiian ceremony + hula performance. ~45 min.",
+          "outfit": "Light dress or smart-casual · sandals"
+        },
+        {
+          "time": "7:30 PM",
+          "title": "Dinner · Duke's Waikiki",
+          "icon": "ti-tools-kitchen-2",
+          "category": "food",
+          "details": "Right on the beach. Hula pie dessert — share it!",
+          "alternates": [
+            "Marukame Udon — cheap & delicious",
+            "Waikiki Brewing Co — craft beer + food",
+            "Dessert after: Waiola Shave Ice — try haupia flavour"
+          ]
+        },
+        {
+          "time": "9:00 PM",
+          "title": "Park car at SpotHero spot",
+          "icon": "ti-parking",
+          "details": "Pre-booked overnight spot · walk back to Bamboo"
+        }
+      ]
+    },
+    {
+      "date": "Wed May 13",
+      "iso": "2026-05-13",
+      "label": "Day 2",
+      "theme": "History · Gardens · Sunset views",
+      "color": "amber",
+      "car": true,
+      "weather": {
+        "high": "80°F",
+        "rain": "15%",
+        "note": "Drier day · good for gardens"
+      },
+      "summary": "Iolani Palace, Chinatown, then Ho'omaluhia Botanical Garden and Byodo-In Temple. Sunset cocktails to finish.",
+      "events": [
+        {
+          "time": "8:00 AM",
+          "title": "Breakfast · Café Julia",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Locally-sourced breakfast in a beautiful historic building near downtown.",
+          "alternates": [
+            "Liliha Bakery for legendary coco puffs",
+            "Hotel breakfast for slow start"
+          ],
+          "outfit": "Light smart-casual"
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Iolani Palace",
+          "icon": "ti-building-monument",
+          "category": "culture",
+          "badge": "Book ahead",
+          "details": "Only royal palace in the USA. Self-guided audio tour ~1.5 hrs. $25/person. Tue–Sat. Air-conditioned, flat, perfect for wellness.",
+          "alternates": [
+            "If sold out: walk exterior + State Capitol + King Kamehameha Statue"
+          ],
+          "outfit": "Smart-casual — no beachwear · comfortable shoes",
+          "weather": "Air-conditioned inside — bring light layer"
+        },
+        {
+          "time": "11:15 AM",
+          "title": "Chinatown · Madre Chocolate + market",
+          "icon": "ti-shopping-bag",
+          "category": "food",
+          "details": "Madre Chocolate — bean-to-bar Hawaiian chocolate tasting + take-home bars. Maunakea Marketplace — fresh young coconut, exotic fruit stalls.",
+          "alternates": [
+            "Mango Mango Dessert in Chinatown for mango pudding"
+          ]
+        },
+        {
+          "time": "12:30 PM",
+          "title": "Lunch · Lucky Belly",
+          "icon": "ti-bowl",
+          "category": "food",
+          "details": "Inventive Asian-fusion. Excellent noodles.",
+          "alternates": [
+            "Livestock Tavern — locally-sourced, beautifully done",
+            "Maunakea Marketplace food court — chaotic & wonderful"
+          ]
+        },
+        {
+          "time": "1:45 PM",
+          "title": "Drive to Ho'omaluhia (~25 min)",
+          "icon": "ti-car",
+          "details": "Heading to the windward side via Pali Highway.",
+          "weather": "May see brief shower crossing the Ko'olau — normal & beautiful"
+        },
+        {
+          "time": "2:15 PM",
+          "title": "Ho'omaluhia Botanical Garden",
+          "icon": "ti-plant",
+          "category": "nature",
+          "badge": "Gentle pace",
+          "details": "FREE · 400 acres · stunning Ko'olau mountain backdrop · completely flat · peaceful. Picnic with your Chinatown fruit haul.",
+          "alternates": [
+            "If raining: drive slowly through — still beautiful"
+          ],
+          "outfit": "Comfortable walking shoes · hat · light rain jacket"
+        },
+        {
+          "time": "4:00 PM",
+          "title": "Byodo-In Temple",
+          "icon": "ti-temple",
+          "category": "culture",
+          "details": "~10 min from Ho'omaluhia · $5 entry · stunning Japanese Buddhist temple. Free-roaming peacocks, koi pond, sacred bell.",
+          "alternates": [
+            "Skip if tired — head back to Waikiki for longer rest"
+          ]
+        },
+        {
+          "time": "5:30 PM",
+          "title": "Drive back to Waikiki",
+          "icon": "ti-car",
+          "details": "~35 min · freshen up at hotel"
+        },
+        {
+          "time": "6:30 PM",
+          "title": "House Without a Key · Sunset",
+          "icon": "ti-glass-cocktail",
+          "category": "food",
+          "badge": "Highlight",
+          "details": "Sunset cocktails at Halekulani · live Hawaiian music + hula dancer. She gets hibiscus mocktail, you get a classic.",
+          "alternates": [
+            "Mai Tai Bar at Royal Hawaiian if full"
+          ],
+          "outfit": "Smart-casual to slightly dressy · this is a beautiful moment",
+          "weather": "Golden hour · magical light · warm & calm"
+        },
+        {
+          "time": "7:30 PM",
+          "title": "Dinner · Nobu Honolulu",
+          "icon": "ti-tools-kitchen-2",
+          "category": "food",
+          "details": "World-class Japanese-Peruvian. Black cod miso is unmissable.",
+          "alternates": [
+            "Senia — creative Hawaiian tasting menu",
+            "Arancino di Mare — lighter Italian seafood"
+          ]
+        },
+        {
+          "time": "9:00 PM",
+          "title": "Tantalus Lookout night drive",
+          "icon": "ti-mountain",
+          "category": "free",
+          "badge": "New",
+          "details": "~15 min · FREE · Best panoramic night view of Honolulu — city lights, Diamond Head, ocean.",
+          "alternates": [
+            "Skip if tired — absolutely fine"
+          ],
+          "outfit": "Light jacket — cooler at elevation"
+        }
+      ]
+    },
+    {
+      "date": "Thu May 14",
+      "iso": "2026-05-14",
+      "label": "Day 3",
+      "theme": "Pearl Harbor + Kailua",
+      "color": "pink",
+      "car": true,
+      "weather": {
+        "high": "80°F",
+        "rain": "15%",
+        "note": "Generally clear"
+      },
+      "summary": "Pearl Harbor in the morning, then lunch at Haleiwa Joe's Kaneohe and Kailua town browse.",
+      "events": [
+        {
+          "time": "6:00 AM",
+          "title": "Leonard's Bakery · hot malasadas!",
+          "icon": "ti-bread",
+          "category": "food",
+          "details": "Opens 6am. 933 Kapahulu Ave. Original glazed + custard-filled + ube + haupia.",
+          "alternates": [
+            "Hotel snack + stop Leonard's on way back"
+          ],
+          "outfit": "Modest clothing — covered shoulders · Pearl Harbor is a memorial",
+          "weather": "Cool early morning · light layer useful"
+        },
+        {
+          "time": "7:15 AM",
+          "title": "Drive to Pearl Harbor (~25 min)",
+          "icon": "ti-car",
+          "category": "transit",
+          "details": "Much more comfortable than TheBus.",
+          "outfit": "Comfortable walking shoes · light layer for A/C"
+        },
+        {
+          "time": "7:50 AM",
+          "title": "USS Arizona Memorial",
+          "icon": "ti-anchor",
+          "category": "culture",
+          "badge": "Pre-booked",
+          "details": "23-min documentary then boat to memorial over sunken Arizona. 1,177 sailors still entombed. Profoundly moving.",
+          "outfit": "Respectful & modest · flat comfortable shoes",
+          "weather": "Air-conditioned film room · outdoor boat — bring layer"
+        },
+        {
+          "time": "9:30 AM",
+          "title": "USS Missouri Battleship",
+          "icon": "ti-ship",
+          "category": "culture",
+          "details": "Where Japan surrendered to end WWII. Walk the famous surrender deck.",
+          "alternates": [
+            "Skip if tired — Arizona Memorial is the essential one"
+          ]
+        },
+        {
+          "time": "11:30 AM",
+          "title": "Drive to Haleiwa Joe's Kaneohe",
+          "icon": "ti-car",
+          "details": "~20 min · beautiful windward garden restaurant."
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Lunch · Haleiwa Joe's Kaneohe",
+          "icon": "ti-fish",
+          "category": "food",
+          "details": "Fresh seafood in gorgeous open-air garden setting. Macadamia-crusted mahi mahi, calamari, fresh fish tacos.",
+          "alternates": [
+            "Kailua Town Café for lighter option",
+            "Kalapawai Café in Kailua for deli-style"
+          ]
+        },
+        {
+          "time": "1:15 PM",
+          "title": "Kailua town browse",
+          "icon": "ti-shopping-bag",
+          "details": "Charming beach town · independent boutiques · local art.",
+          "alternates": [
+            "Cinnamon's Restaurant — guava chiffon pancakes (unique to Hawaii!)",
+            "Agnes' Portuguese Bake Shop for malasadas"
+          ]
+        },
+        {
+          "time": "2:30 PM",
+          "title": "Drive back to Waikiki",
+          "icon": "ti-car",
+          "details": "~35 min via Pali Hwy · beautiful mountain scenery."
+        },
+        {
+          "time": "3:15 PM",
+          "title": "Hotel rest",
+          "icon": "ti-bed",
+          "category": "rest",
+          "badge": "Gentle pace",
+          "details": "Easy and relaxed downtime · feet up · eat Costco fruit."
+        },
+        {
+          "time": "6:00 PM",
+          "title": "BOOK HANAUMA BAY NOW!",
+          "icon": "ti-alert-circle",
+          "category": "booking",
+          "badge": "Do this NOW",
+          "details": "hanaumabaystatepark.com · $25/person · Book for Saturday May 16. Slots open exactly 2 days ahead — tonight is your window."
+        },
+        {
+          "time": "7:00 PM",
+          "title": "Relaxed dinner · Ramen Nakamura",
+          "icon": "ti-bowl",
+          "category": "food",
+          "details": "Excellent tonkotsu · local favourite.",
+          "alternates": [
+            "Wailana Coffee House — old-school diner, relaxed",
+            "Room service if she needs early night"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Fri May 15",
+      "iso": "2026-05-15",
+      "label": "Day 4",
+      "theme": "Windward + North Shore + Kualoa",
+      "color": "amber",
+      "car": true,
+      "weather": {
+        "high": "84°F",
+        "rain": "40% AM N. Shore",
+        "note": "Manoa always misty · clears by noon"
+      },
+      "summary": "The big day. Manoa Falls, Pali, Lanikai, Kualoa Ranch, Giovanni's, optional Polo Beach.",
+      "events": [
+        {
+          "time": "6:30 AM",
+          "title": "Early light breakfast",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Hotel grab-and-go or Costco fruit + granola bars. Don't hike on heavy stomach.",
+          "alternates": [
+            "McDonald's Saratoga (24hr) if you need hot food fast"
+          ],
+          "outfit": "Waterproof hiking shoes · moisture-wicking top · quick-dry shorts · small backpack"
+        },
+        {
+          "time": "7:15 AM",
+          "title": "Drive to Manoa Falls (~20 min)",
+          "icon": "ti-car",
+          "details": "Pack: water, Costco snacks, light rain jacket.",
+          "weather": "Manoa is a rainforest — it WILL be misty/drizzly · normal & beautiful"
+        },
+        {
+          "time": "7:45 AM",
+          "title": "Manoa Falls Hike",
+          "icon": "ti-walk",
+          "category": "hike",
+          "badge": "Gentle pace",
+          "details": "1.6mi round trip · 150ft waterfall · lush jungle. Go at partner's pace · turn back if uncomfortable.",
+          "outfit": "Waterproof shoes ESSENTIAL · light rain jacket · hat",
+          "weather": "Expect mist & light rain · refreshing not unpleasant"
+        },
+        {
+          "time": "9:15 AM",
+          "title": "Drive to Pali Lookout (~15 min)",
+          "icon": "ti-car",
+          "details": "Crossing the Ko'olau ridge — weather changes dramatically."
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Nu'uanu Pali Lookout",
+          "icon": "ti-wind",
+          "category": "view",
+          "details": "$7 parking · jaw-dropping windward views · legendary winds · 20–30 min stop.",
+          "outfit": "Light windbreaker — ESSENTIAL · very windy",
+          "weather": "Almost always breezy · hold onto belongings"
+        },
+        {
+          "time": "10:15 AM",
+          "title": "Morning Brew or Cinnamon's · Kailua",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Coffee + acai bowl · rest after hike.",
+          "alternates": [
+            "Kalapawai Café for pastry + coffee"
+          ]
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Lunch · Kalapawai Café Kailua",
+          "icon": "ti-bread",
+          "category": "food",
+          "details": "Fresh deli sandwiches · grab a picnic to take to Lanikai.",
+          "alternates": [
+            "Over Easy for brunch if timing works"
+          ]
+        },
+        {
+          "time": "11:45 AM",
+          "title": "Lanikai Beach",
+          "icon": "ti-beach",
+          "category": "beach",
+          "badge": "Gentle pace",
+          "details": "One of Hawaii's most beautiful beaches · powder sand · sea turtles. Park at Kailua Beach Park · 15 min walk.",
+          "outfit": "Swimsuit under clothes · rash guard · flip flops",
+          "weather": "Warm sunny windward afternoon · UV HIGH"
+        },
+        {
+          "time": "2:00 PM",
+          "title": "Drive to Haleiwa (~45 min)",
+          "icon": "ti-car",
+          "details": "Scenic Kamehameha Hwy coastal route.",
+          "weather": "North Shore usually clears by afternoon"
+        },
+        {
+          "time": "3:00 PM",
+          "title": "Giovanni's Shrimp Truck",
+          "icon": "ti-truck",
+          "category": "food",
+          "badge": "Iconic",
+          "details": "Iconic North Shore experience · garlic butter shrimp · eat at picnic tables. Cash preferred. Expect queue.",
+          "alternates": [
+            "Romy's Shrimp for quieter alternative nearby"
+          ],
+          "outfit": "Casual beach wear · sandals"
+        },
+        {
+          "time": "3:45 PM",
+          "title": "Matsumoto's Shave Ice + Haleiwa browse",
+          "icon": "ti-snowflake",
+          "category": "food",
+          "details": "Classic North Shore shave ice since 1951. Rainbow + azuki beans + ice cream inside.",
+          "alternates": [
+            "Aoki's Shave Ice if queue too long",
+            "Guava Shop · Celestial Natural Foods for local goods"
+          ]
+        },
+        {
+          "time": "4:30 PM",
+          "title": "Polo Beach (optional)",
+          "icon": "ti-beach",
+          "category": "beach",
+          "badge": "Optional",
+          "optional": true,
+          "details": "68 Farrington Hwy Waialua · ~10 min west · remote, uncrowded. Near Mokuleia polo fields — possibly horses!",
+          "alternates": [
+            "SKIP if tired — Haleiwa is already a great end"
+          ],
+          "outfit": "Swimsuit if you want to swim · sandals"
+        },
+        {
+          "time": "5:30 PM",
+          "title": "Drive back via H-2 (~55 min)",
+          "icon": "ti-car",
+          "details": "Faster return via freeway."
+        },
+        {
+          "time": "6:30 PM",
+          "title": "Hotel · shower & rest",
+          "icon": "ti-bath",
+          "category": "rest",
+          "badge": "Gentle pace",
+          "details": "Mandatory rest — big day. Feet up."
+        },
+        {
+          "time": "7:30 PM",
+          "title": "Dinner · save the splurge",
+          "icon": "ti-tools-kitchen-2",
+          "category": "food",
+          "details": "Nobu Honolulu if you didn't go Wed · black cod miso.",
+          "alternates": [
+            "Senia for creative Hawaiian",
+            "Modest Kitchen for relaxed end to day",
+            "Dessert: Lapperts Hawaii ice cream"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Sat May 16",
+      "iso": "2026-05-16",
+      "label": "Day 5",
+      "theme": "Hanauma Bay + East Coast",
+      "color": "amber",
+      "car": true,
+      "weather": {
+        "high": "80°F",
+        "rain": "Low",
+        "note": "Below-normal east side · ideal!"
+      },
+      "summary": "Early start for Hanauma Bay snorkel, then Halona Blowhole and Sandy Beach drive.",
+      "events": [
+        {
+          "time": "5:30 AM",
+          "title": "Wake up early",
+          "icon": "ti-alarm",
+          "details": "Snacks & water ready from last night · two alarms set.",
+          "outfit": "Swimsuit + rash guard UNDER clothes · water shoes · hat"
+        },
+        {
+          "time": "6:10 AM",
+          "title": "Drive to Hanauma Bay (~25 min)",
+          "icon": "ti-car",
+          "category": "transit",
+          "badge": "Car day",
+          "details": "Parking fills fast — arrive before 7am for best spots.",
+          "weather": "Clear east side morning forecast · excellent conditions"
+        },
+        {
+          "time": "6:45 AM",
+          "title": "Hanauma Bay — opening time",
+          "icon": "ti-fish",
+          "category": "beach",
+          "badge": "Pre-booked",
+          "details": "Show pre-booked tickets ($25/person) · Mandatory 9-min reef video. Calm shallow water — perfect for wellness.",
+          "outfit": "Rash guard ESSENTIAL · water shoes · polarised sunglasses",
+          "weather": "Below-normal rainfall east side · UV very high · sunscreen critical"
+        },
+        {
+          "time": "7:15 AM",
+          "title": "Snorkel the reef",
+          "icon": "ti-swimming",
+          "category": "beach",
+          "badge": "Gentle pace",
+          "details": "Tropical fish, sea turtles, parrotfish, humuhumunukunukuapuaa. Inner bay calm & shallow."
+        },
+        {
+          "time": "10:00 AM",
+          "title": "Beach break & snack",
+          "icon": "ti-beach",
+          "details": "Costco snacks · rest · reapply sunscreen.",
+          "weather": "UV at peak · stay in shade or reapply every 30 min"
+        },
+        {
+          "time": "10:45 AM",
+          "title": "Drive to Halona Blowhole (~5 min)",
+          "icon": "ti-car",
+          "details": "Tiny detour off Hwy 72 — roadside pull-off."
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Halona Blowhole",
+          "icon": "ti-droplets",
+          "category": "view",
+          "badge": "New",
+          "details": "Ocean forces through lava tube · spectacular water spout. Also Eternity Beach below (From Here to Eternity film).",
+          "alternates": [
+            "Skip Eternity Beach hike if tired — view from roadside is great"
+          ]
+        },
+        {
+          "time": "11:15 AM",
+          "title": "Sandy Beach",
+          "icon": "ti-beach",
+          "category": "view",
+          "badge": "New",
+          "details": "Famous bodysurfing beach · powerful shore break · amazing to watch. Don't swim — unsafe for wellness."
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Leonard's Bakery (round 2)",
+          "icon": "ti-bread",
+          "category": "food",
+          "details": "Hot malasadas — try custard-filled + ube + haupia. Buy a box.",
+          "alternates": [
+            "Agnes' Portuguese Bake Shop for different style"
+          ]
+        },
+        {
+          "time": "1:00 PM",
+          "title": "Lunch · Rainbow Drive-In",
+          "icon": "ti-bowl",
+          "category": "food",
+          "details": "Classic Hawaiian plate lunch · very close to Leonard's.",
+          "alternates": [
+            "Zippy's — beloved local chain · chili & zip pac bento",
+            "Side Street Inn — pork chops legendary"
+          ]
+        },
+        {
+          "time": "2:30 PM",
+          "title": "Hotel · afternoon rest",
+          "icon": "ti-bed",
+          "category": "rest",
+          "badge": "Gentle pace",
+          "details": "Long early morning — mandatory rest."
+        },
+        {
+          "time": "5:00 PM",
+          "title": "Sunset on Waikiki Beach",
+          "icon": "ti-sunset",
+          "details": "Golden hour · shoes off · toes in the sand. One of the best sunsets of the trip.",
+          "outfit": "Light dress or smart-casual · sandals"
+        },
+        {
+          "time": "6:30 PM",
+          "title": "Dinner · Hy's Steak House",
+          "icon": "ti-meat",
+          "category": "food",
+          "details": "Classic Waikiki fine dining since 1976 · tableside flambé.",
+          "alternates": [
+            "Arancino di Mare — lighter seafood pasta",
+            "Nico's at Pier 38 — fresh local fish casual",
+            "Dessert: Waiola Shave Ice — different flavour tonight"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "Sun May 17",
+      "iso": "2026-05-17",
+      "label": "Day 6",
+      "theme": "Gentle Ala Moana day",
+      "color": "purple",
+      "car": true,
+      "weather": {
+        "high": "81°F",
+        "rain": "Low",
+        "note": "Good beach weather"
+      },
+      "summary": "A relaxed recovery day. Liliha Bakery, Ala Moana Beach, shopping, last hula show.",
+      "events": [
+        {
+          "time": "7:30 AM",
+          "title": "Breakfast · Liliha Bakery",
+          "icon": "ti-bread",
+          "category": "food",
+          "details": "Legendary coco puffs (chocolate cream puffs — extraordinary). Get there early — Sunday queue builds fast.",
+          "alternates": [
+            "Café Kaila in Market City for beautiful brunch",
+            "Eggs n Things for macadamia pancakes"
+          ],
+          "outfit": "Casual sundress or shorts · comfortable sandals"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Morning swim · Waikiki",
+          "icon": "ti-swimming",
+          "category": "beach",
+          "badge": "Gentle pace",
+          "details": "Easy relaxed swim · no agenda.",
+          "alternates": [
+            "Walk to Kapiolani Park for Sunday morning scene"
+          ]
+        },
+        {
+          "time": "10:30 AM",
+          "title": "Ala Moana Beach Park",
+          "icon": "ti-beach",
+          "category": "beach",
+          "badge": "Gentle pace",
+          "details": "Less crowded than Waikiki · calm lagoon · Magic Island peninsula adjacent.",
+          "outfit": "Swimsuit + cover-up · sandals"
+        },
+        {
+          "time": "12:00 PM",
+          "title": "Lunch · Ala Moana Center",
+          "icon": "ti-bowl",
+          "category": "food",
+          "details": "Goma Tei Ramen — outstanding broth · local favourite.",
+          "alternates": [
+            "Marukame Udon · Poke to the Max",
+            "Mango Mango Dessert — paradise for fruit lovers!"
+          ]
+        },
+        {
+          "time": "1:30 PM",
+          "title": "Ala Moana Center browse",
+          "icon": "ti-shopping-bag",
+          "details": "Hawaii's best mall · Mango Mango if you skipped at lunch · Longs Drugs for snacks · Guava Shop for Hawaiian prints."
+        },
+        {
+          "time": "3:00 PM",
+          "title": "Magic Island walk",
+          "icon": "ti-walk",
+          "category": "view",
+          "badge": "Gentle pace",
+          "details": "Beautiful peninsula · local families picnicking · views back to Diamond Head. Flat, easy, beautiful."
+        },
+        {
+          "time": "5:00 PM",
+          "title": "Freshen up at hotel",
+          "icon": "ti-building",
+          "outfit": "Change to smart-casual for evening"
+        },
+        {
+          "time": "6:00 PM",
+          "title": "Kuhio Beach Hula Show",
+          "icon": "ti-flame",
+          "category": "free",
+          "badge": "Free",
+          "details": "FREE · Sundays 6–7:30 PM · last chance to see this on your trip.",
+          "outfit": "Smart-casual · sandals or flats"
+        },
+        {
+          "time": "7:30 PM",
+          "title": "Dinner · Morimoto Asia",
+          "icon": "ti-tools-kitchen-2",
+          "category": "food",
+          "details": "Iron Chef Morimoto's Waikiki spot · exceptional Asian fusion · fresh seafood.",
+          "alternates": [
+            "Nobu Honolulu if you haven't been",
+            "House Without a Key for repeat sunset magic"
+          ]
+        },
+        {
+          "time": "9:00 PM",
+          "title": "Evening stroll + begin packing",
+          "icon": "ti-moon",
+          "details": "Final shave ice — try a new flavour tonight."
+        }
+      ]
+    },
+    {
+      "date": "Mon May 18",
+      "iso": "2026-05-18",
+      "label": "Day 7",
+      "theme": "Polynesian Cultural Center",
+      "color": "teal",
+      "car": true,
+      "weather": {
+        "high": "82°F",
+        "rain": "Possible PM",
+        "note": "North Shore AM cloud · clears by show"
+      },
+      "summary": "Last morning swim, drive to PCC, spend the afternoon at village tours, luau dinner and fire show.",
+      "events": [
+        {
+          "time": "8:00 AM",
+          "title": "Breakfast · Eggs n Things",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Macadamia nut pancakes + fresh fruit crepes + lilikoi syrup.",
+          "alternates": [
+            "Wailana Coffee House — save for tomorrow",
+            "Hotel room service for slow morning"
+          ],
+          "outfit": "Smart-casual for PCC — no beachwear"
+        },
+        {
+          "time": "9:00 AM",
+          "title": "Last morning swim",
+          "icon": "ti-swimming",
+          "category": "beach",
+          "badge": "Gentle pace",
+          "details": "Final Waikiki swim · soak it in.",
+          "outfit": "Swimsuit + cover-up"
+        },
+        {
+          "time": "10:30 AM",
+          "title": "Check out + store luggage",
+          "icon": "ti-luggage",
+          "details": "Hotel front desk holds bags until tonight."
+        },
+        {
+          "time": "11:00 AM",
+          "title": "Drive to PCC (~55 min)",
+          "icon": "ti-car",
+          "category": "transit",
+          "badge": "Car day",
+          "details": "Scenic drive to Laie · flexibility vs rigid shuttle schedule.",
+          "alternates": [
+            "Stop Matsumoto's Shave Ice in Haleiwa on the way"
+          ],
+          "outfit": "Smart-casual · comfortable shoes · light cardigan for evening",
+          "weather": "North Shore AM cloud usually clears by midday"
+        },
+        {
+          "time": "12:15 PM",
+          "title": "Village tours begin",
+          "icon": "ti-palm-tree",
+          "category": "culture",
+          "badge": "Gentle pace",
+          "details": "Samoa · Tonga · Hawaii · Fiji · Tahiti · Aotearoa. Participate: coconut husking, poi pounding, fire making. Pace yourself — pick 3–4 to go deep."
+        },
+        {
+          "time": "3:00 PM",
+          "title": "Canoe pageant on the lagoon",
+          "icon": "ti-ship",
+          "category": "culture",
+          "badge": "Highlight",
+          "details": "Beautiful water show · find good seats early · 30 min."
+        },
+        {
+          "time": "4:00 PM",
+          "title": "Village shopping",
+          "icon": "ti-shopping-bag",
+          "details": "Local crafts · Polynesian souvenirs · authentic gifts."
+        },
+        {
+          "time": "5:00 PM",
+          "title": "Ali'i Luau Buffet Dinner",
+          "icon": "ti-meat",
+          "category": "food",
+          "badge": "Highlight",
+          "details": "Hawaiian feast · kalua pork · lomi lomi salmon · poi · HAUPIA for dessert — go back for seconds! Avoid white clothing.",
+          "outfit": "Avoid white · smart-casual · cardigan for later"
+        },
+        {
+          "time": "7:30 PM",
+          "title": "Ha: Breath of Life · Fire show",
+          "icon": "ti-flame",
+          "category": "culture",
+          "badge": "Highlight",
+          "details": "Spectacular outdoor Polynesian fire & acrobatics show · world-class. Find seats 20 min early.",
+          "outfit": "Light cardigan/jacket — outdoor evening cool",
+          "weather": "Evening breeze · cardigan essential"
+        },
+        {
+          "time": "9:15 PM",
+          "title": "Drive back to Waikiki (~55 min)",
+          "icon": "ti-car",
+          "details": "No shuttle constraints — leave when you want.",
+          "alternates": [
+            "Stop Matsumoto's on way back if still open"
+          ]
+        },
+        {
+          "time": "10:15 PM",
+          "title": "Return Hertz at Hyatt",
+          "icon": "ti-key",
+          "category": "transit",
+          "badge": "Return car",
+          "details": "Steps from Bamboo · check fuel before return · top up nearby if needed."
+        },
+        {
+          "time": "10:30 PM",
+          "title": "Back at Bamboo — final night",
+          "icon": "ti-building",
+          "details": "Collect stored bags · pack remaining items."
+        }
+      ]
+    },
+    {
+      "date": "Tue May 19",
+      "iso": "2026-05-19",
+      "label": "Depart",
+      "theme": "Departure day",
+      "color": "blue",
+      "car": false,
+      "weather": {
+        "high": "79°F",
+        "rain": "Low",
+        "note": "Typically clear · good send-off"
+      },
+      "summary": "Final breakfast, last walk on Waikiki Beach, then home.",
+      "events": [
+        {
+          "time": "7:00 AM",
+          "title": "Breakfast · Wailana Coffee House",
+          "icon": "ti-coffee",
+          "category": "food",
+          "details": "Old-school Waikiki diner since 1969 · huge portions · fresh fruit platter.",
+          "alternates": [
+            "Hotel breakfast for slow morning"
+          ],
+          "outfit": "Comfortable travel clothes · slip-on shoes"
+        },
+        {
+          "time": "8:30 AM",
+          "title": "Last walk on Waikiki Beach",
+          "icon": "ti-beach",
+          "details": "Shoes off · toes in the sand · final Diamond Head photo · fresh young coconut from a vendor."
+        },
+        {
+          "time": "9:30 AM",
+          "title": "Last-minute stops",
+          "icon": "ti-shopping-bag",
+          "optional": true,
+          "details": "Airport has Hawaiian Host macadamia chocolates at good prices. Longs Drugs / ABC Store for any forgotten gifts."
+        },
+        {
+          "time": "10:00 AM",
+          "title": "Rideshare to HNL Airport",
+          "icon": "ti-car",
+          "category": "transit",
+          "details": "Uber or Lyft · ~25 min · ~$25 · book 10 min before."
+        },
+        {
+          "time": "10:30 AM",
+          "title": "Check in & security",
+          "icon": "ti-plane",
+          "details": "Allow 2.5 hrs before departure · TSA PreCheck if you have it."
+        },
+        {
+          "time": "1:10 PM",
+          "title": "DEPART HONOLULU",
+          "icon": "ti-plane-departure",
+          "badge": "Aloha",
+          "details": "Mahalo & Aloha. You'll be back."
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "what": "USS Arizona Memorial",
+      "where": "recreation.gov",
+      "when": "ASAP — fills weeks ahead",
+      "notes": "Free boat tour · Opens 7 AM"
+    },
+    {
+      "what": "Kualoa Ranch · Movie Sites Tour",
+      "where": "kualoa.com",
+      "when": "ASAP",
+      "notes": "~$50/person · Easy and relaxed · Jurassic Park valley"
+    },
+    {
+      "what": "Polynesian Cultural Center",
+      "where": "polynesia.com or Costco Travel",
+      "when": "2–3 weeks before",
+      "notes": "Check Costco Travel for discount!"
+    },
+    {
+      "what": "Hanauma Bay Snorkeling",
+      "where": "hanaumabaystatepark.com",
+      "when": "Thu May 14 EVENING",
+      "notes": "$25/person · exactly 2 days ahead · Opens 6:45 AM"
+    },
+    {
+      "what": "Iolani Palace",
+      "where": "iolanipalace.org",
+      "when": "1–2 weeks before",
+      "notes": "Open Tue–Sat · $25/person"
+    },
+    {
+      "what": "Pearl Harbor General",
+      "where": "pearlharborhistoricsites.org",
+      "when": "2–3 weeks before",
+      "notes": "Free entry · museums paid extra"
+    },
+    {
+      "what": "Hertz Car Rental",
+      "where": "Hyatt Regency Waikiki",
+      "when": "BOOKED ✓",
+      "notes": "May 12 8am → May 18 8pm · $251 weekly",
+      "done": true
+    },
+    {
+      "what": "SpotHero Overnight Parking",
+      "where": "spothero.com",
+      "when": "Book NOW — all 6 nights",
+      "notes": "May 12–17 · ~$15–22/night · ~$110 total"
+    },
+    {
+      "what": "Costco Membership",
+      "where": "Already a member ✓",
+      "when": "Tue May 12 from 10am",
+      "notes": "Executive black card · 2% cashback",
+      "done": true
+    },
+    {
+      "what": "Uber / Lyft Apps",
+      "where": "App Store / Google Play",
+      "when": "Before travel",
+      "notes": "Set up payment at home · download both"
+    },
+    {
+      "what": "Travel Insurance",
+      "where": "Your provider",
+      "when": "Before travel",
+      "notes": "Confirm rental coverage + medical travel cover"
+    }
+  ],
+  "costco": [
+    {
+      "item": "Reef-safe sunscreen (2-pack)",
+      "category": "Sun & Skin",
+      "note": "MANDATORY at Hanauma Bay"
+    },
+    {
+      "item": "Aloe vera gel (large)",
+      "category": "Sun & Skin",
+      "note": "After-sun essential"
+    },
+    {
+      "item": "Case of water (40-pack)",
+      "category": "Drinks",
+      "note": "Car days · Hanauma · hiking"
+    },
+    {
+      "item": "Coconut water (12-pack)",
+      "category": "Drinks",
+      "note": "Electrolytes · easy and relaxed"
+    },
+    {
+      "item": "Fresh pineapple / mango / papaya",
+      "category": "Fruit",
+      "note": "May = mango season starting!"
+    },
+    {
+      "item": "Apple bananas (bunch)",
+      "category": "Fruit",
+      "note": "Unique Hawaiian variety · creamier"
+    },
+    {
+      "item": "Ginger chews (bulk)",
+      "category": "Wellness",
+      "note": "Good for sensitive stomachs · carry in bag"
+    },
+    {
+      "item": "Antacids / Tums",
+      "category": "Wellness",
+      "note": "Easy days comfort"
+    },
+    {
+      "item": "Trail mix / mixed nuts",
+      "category": "Snacks",
+      "note": "Long car days · Manoa hike"
+    },
+    {
+      "item": "Granola bars",
+      "category": "Snacks",
+      "note": "Pre-hike · quick energy"
+    },
+    {
+      "item": "Dried mango slices",
+      "category": "Snacks",
+      "note": "Costco Hawaii speciality"
+    },
+    {
+      "item": "Hawaiian Host macadamia chocolates",
+      "category": "Gifts",
+      "note": "Best price · perfect gifts"
+    },
+    {
+      "item": "Mauna Loa macadamia nuts",
+      "category": "Gifts",
+      "note": "Dry roasted + sea salt best"
+    },
+    {
+      "item": "Kona coffee",
+      "category": "Gifts",
+      "note": "Costco price beats tourist shops"
+    },
+    {
+      "item": "Soft-sided cooler (if needed)",
+      "category": "Gear",
+      "note": "Cold drinks on North Shore loop"
+    },
+    {
+      "item": "Zip-lock bags (various)",
+      "category": "Gear",
+      "note": "Snacks · wet swimsuits"
+    },
+    {
+      "item": "Hand sanitiser",
+      "category": "Gear",
+      "note": "Beach days · food trucks"
+    },
+    {
+      "item": "Juice boxes / drinks",
+      "category": "Drinks",
+      "note": "Beach days · car snacks"
+    }
+  ],
+  "foodGuide": [
+    {
+      "name": "Leonard's Bakery",
+      "type": "Dessert",
+      "price": "$",
+      "what": "Hot malasadas · original · ube · custard · haupia",
+      "when": "Thu AM + Sat"
+    },
+    {
+      "name": "Waiola Shave Ice",
+      "type": "Dessert",
+      "price": "$",
+      "what": "Li hing mui + ice cream base",
+      "when": "Various evenings"
+    },
+    {
+      "name": "Matsumoto's Shave Ice",
+      "type": "Dessert",
+      "price": "$",
+      "what": "Rainbow + li hing + ice cream inside",
+      "when": "Fri Haleiwa + Mon"
+    },
+    {
+      "name": "Madre Chocolate",
+      "type": "Chocolate",
+      "price": "$$",
+      "what": "Bean-to-bar Hawaiian chocolate",
+      "when": "Wed Chinatown"
+    },
+    {
+      "name": "Island Vintage Coffee",
+      "type": "Café",
+      "price": "$$",
+      "what": "Sunrise acai bowl + shave ice",
+      "when": "Tue afternoon"
+    },
+    {
+      "name": "Mango Mango Dessert",
+      "type": "Dessert",
+      "price": "$$",
+      "what": "Mango pudding · soft serve · everything",
+      "when": "Sun Ala Moana"
+    },
+    {
+      "name": "Liliha Bakery",
+      "type": "Bakery",
+      "price": "$",
+      "what": "Legendary coco puffs",
+      "when": "Sun breakfast"
+    },
+    {
+      "name": "House Without a Key",
+      "type": "Drinks",
+      "price": "$$$",
+      "what": "Sunset + live Hawaiian music",
+      "when": "Wed sunset"
+    },
+    {
+      "name": "Giovanni's Shrimp Truck",
+      "type": "Seafood",
+      "price": "$$",
+      "what": "Garlic butter scampi shrimp",
+      "when": "Fri Haleiwa"
+    },
+    {
+      "name": "Haleiwa Joe's Kaneohe",
+      "type": "Seafood",
+      "price": "$$$",
+      "what": "Catch of day · macadamia mahi mahi",
+      "when": "Thu lunch"
+    },
+    {
+      "name": "Kalapawai Café",
+      "type": "Café",
+      "price": "$$",
+      "what": "Fresh deli for Lanikai picnic",
+      "when": "Fri lunch"
+    },
+    {
+      "name": "Cinnamon's",
+      "type": "Brunch",
+      "price": "$$",
+      "what": "Guava chiffon pancakes (unique to Hawaii!)",
+      "when": "Thu / Fri"
+    },
+    {
+      "name": "Heavenly Island Lifestyle",
+      "type": "Healthy",
+      "price": "$$",
+      "what": "Best acai bowls in Waikiki",
+      "when": "Tue breakfast"
+    },
+    {
+      "name": "Nobu Honolulu",
+      "type": "Fine Dining",
+      "price": "$$$$",
+      "what": "Black cod miso · world-class",
+      "when": "Wed or Fri evening"
+    },
+    {
+      "name": "Eggs n Things",
+      "type": "Breakfast",
+      "price": "$$",
+      "what": "Macadamia pancakes + lilikoi syrup",
+      "when": "Mon breakfast"
+    },
+    {
+      "name": "Wailana Coffee House",
+      "type": "Diner",
+      "price": "$",
+      "what": "Old-school · fresh fruit platter",
+      "when": "Tue departure"
+    },
+    {
+      "name": "Waikiki Market",
+      "type": "Fruit Shop",
+      "price": "$",
+      "what": "Exotic Hawaiian fruits · pineapple · lychee",
+      "when": "Tue + ongoing"
+    },
+    {
+      "name": "Maunakea Marketplace",
+      "type": "Market",
+      "price": "$",
+      "what": "Fresh coconut · exotic fruits · food court",
+      "when": "Wed Chinatown"
+    },
+    {
+      "name": "PCC Ali'i Luau",
+      "type": "Hawaiian",
+      "price": "$$$$",
+      "what": "Kalua pork · poi · HAUPIA (seconds!)",
+      "when": "Mon dinner"
+    },
+    {
+      "name": "Duke's Waikiki",
+      "type": "Casual Fine",
+      "price": "$$$",
+      "what": "Hula pie dessert · iconic Waikiki",
+      "when": "Tue dinner"
+    },
+    {
+      "name": "Marukame Udon",
+      "type": "Casual",
+      "price": "$",
+      "what": "Cheap · authentic · queue moves fast",
+      "when": "Various"
+    },
+    {
+      "name": "Ono Seafood",
+      "type": "Poke",
+      "price": "$",
+      "what": "Best poke in Waikiki · fresh ahi",
+      "when": "Tue lunch"
+    },
+    {
+      "name": "Lucky Belly",
+      "type": "Asian Fusion",
+      "price": "$$",
+      "what": "Inventive noodles · Chinatown gem",
+      "when": "Wed lunch"
+    },
+    {
+      "name": "Morimoto Asia",
+      "type": "Fine Dining",
+      "price": "$$$$",
+      "what": "Iron Chef Morimoto · Asian fusion",
+      "when": "Sun dinner"
+    },
+    {
+      "name": "Hy's Steak House",
+      "type": "Fine Dining",
+      "price": "$$$$",
+      "what": "Classic since 1976 · tableside flambé",
+      "when": "Sat dinner"
+    }
+  ]
+}

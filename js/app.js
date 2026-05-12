@@ -1,3 +1,6 @@
+var DATA;
+var dataReady = fetch('itinerary.json').then(function(r){return r.json();}).then(function(d){DATA=d;});
+
 function icon(name, size=20) {
   const p = ICONS[name] || ICONS['circle'];
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
@@ -6,9 +9,6 @@ function icon(name, size=20) {
 var state={page:'today',dayIso:null,expandedKey:null,foodFilter:'all',
   costcoChecked:new Set(JSON.parse(localStorage.getItem('ck')||'[]')),
   booksDone:new Set(JSON.parse(localStorage.getItem('bd')||'[]'))};
-
-
-DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});
 
 function todayIso(){var d=new Date(),s=d.toISOString().slice(0,10);var days=DATA.days;if(s<days[0].iso)return days[0].iso;if(s>days[days.length-1].iso)return days[days.length-1].iso;return s;}
 function currentDay(){var t=state.dayIso||todayIso();return DATA.days.find(function(d){return d.iso===t;})||DATA.days[0];}
@@ -37,7 +37,7 @@ function renderEvent(e,i,dayIso){
   var tParts=e.time.match(/(\d+:\d+)\s*(AM|PM)/i)||['','',''];
   var hasDetails=e.outfit||e.weather||(e.alternates&&e.alternates.length);
   var iconName=(e.icon||'circle').replace('ti-','');
-  
+
   var details='';
   if(hasDetails){
     var blocks='';
@@ -204,7 +204,9 @@ function render(){
   m.innerHTML=html;
   attach();
   document.querySelectorAll('.navbtn').forEach(function(b){b.classList.toggle('active',b.dataset.page===state.page);});
-  m.scrollTop=0;
+  window.scrollTo(0,0);
+  var tb=document.querySelector('.topbar');
+  if(tb) document.documentElement.style.setProperty('--topbar-h',tb.offsetHeight+'px');
 }
 
 function attach(){
@@ -247,8 +249,9 @@ function attach(){
   });
 }
 
-// Nav listeners and render — called after unlock
+// Nav listeners and render — called after unlock (DATA is guaranteed loaded)
 function initApp(){
+  DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});
   document.querySelectorAll('.navbtn').forEach(function(b){
     b.addEventListener('click',function(){
       state.page=b.dataset.page;state.expandedKey=null;
@@ -265,7 +268,7 @@ function initApp(){
       var a=it.dataset.action;
       if(a==='reset-costco'){if(confirm('Reset Costco list?')){state.costcoChecked.clear();localStorage.setItem('ck','[]');render();}}
       else if(a==='reset-bookings'){if(confirm('Reset bookings?')){state.booksDone.clear();DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});localStorage.setItem('bd',JSON.stringify([...state.booksDone]));render();}}
-      else if(a==='about'){alert('Aloha! 🌺\nYour Oahu itinerary · works offline\nProgress saves to your device.');}
+      else if(a==='about'){alert('Aloha!\nYour Oahu itinerary · works offline\nProgress saves to your device.');}
       overlay.classList.remove('open');sheet.classList.remove('open');
     });
   });
@@ -273,4 +276,86 @@ function initApp(){
   render();
 }
 
-document.addEventListener('DOMContentLoaded', initApp);
+// PIN LOCK — SHA-256 hash of "1091" (no plaintext PIN stored)
+(function(){
+  // SHA-256 of "1091" — computed via: echo -n "1091" | sha256sum
+  var PIN_HASH='11bde34a6593b3da0d81a8a71b24dc6f6cf05d18e9f59e610e58ff202263adef';
+
+  async function sha256(str){
+    var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  }
+
+  var entered='';
+  var dots=document.querySelectorAll('.pin-dot');
+  var errorEl=document.getElementById('lockError');
+  var dotsWrap=document.getElementById('pinDots');
+  var lockEl=document.getElementById('lockscreen');
+  var appEl=document.getElementById('app');
+
+  async function revealApp(){
+    sessionStorage.setItem('unlocked','1');
+    lockEl.classList.add('unlocking');
+    await dataReady;
+    lockEl.style.display='none';
+    appEl.style.display='';
+    initApp();
+  }
+
+  // Skip lock if already unlocked in this tab session
+  if(sessionStorage.getItem('unlocked')==='1'){
+    dataReady.then(function(){
+      lockEl.style.display='none';
+      appEl.style.display='';
+      initApp();
+    });
+    return;
+  }
+
+  function updateDots(){
+    dots.forEach(function(d,i){
+      d.classList.toggle('filled', i < entered.length);
+      d.classList.remove('error');
+    });
+  }
+
+  function wrongPin(){
+    dots.forEach(function(d){ d.classList.add('error'); d.classList.remove('filled'); });
+    dotsWrap.classList.add('shake');
+    errorEl.classList.add('show');
+    setTimeout(function(){
+      dotsWrap.classList.remove('shake');
+      entered='';
+      updateDots();
+    },400);
+  }
+
+  function tryUnlock(){
+    var attempt=entered;
+    sha256(attempt).then(function(hash){
+      if(hash===PIN_HASH){
+        revealApp();
+      } else {
+        wrongPin();
+      }
+    });
+  }
+
+  document.querySelectorAll('.pin-key[data-n]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(entered.length>=4) return;
+      errorEl.classList.remove('show');
+      entered+=btn.dataset.n;
+      updateDots();
+      if(entered.length===4) setTimeout(tryUnlock,120);
+    });
+  });
+
+  document.getElementById('pinDel').addEventListener('click',function(){
+    if(entered.length>0){
+      entered=entered.slice(0,-1);
+      errorEl.classList.remove('show');
+      updateDots();
+    }
+  });
+})();
