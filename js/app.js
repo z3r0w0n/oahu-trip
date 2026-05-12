@@ -1,3 +1,6 @@
+var DATA;
+var dataReady = fetch('itinerary.json').then(function(r){return r.json();}).then(function(d){DATA=d;});
+
 function icon(name, size=20) {
   const p = ICONS[name] || ICONS['circle'];
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
@@ -6,8 +9,6 @@ function icon(name, size=20) {
 var state={page:'today',dayIso:null,expandedKey:null,foodFilter:'all',
   costcoChecked:new Set(JSON.parse(localStorage.getItem('ck')||'[]')),
   booksDone:new Set(JSON.parse(localStorage.getItem('bd')||'[]'))};
-
-DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});
 
 function todayIso(){var d=new Date(),s=d.toISOString().slice(0,10);var days=DATA.days;if(s<days[0].iso)return days[0].iso;if(s>days[days.length-1].iso)return days[days.length-1].iso;return s;}
 function currentDay(){var t=state.dayIso||todayIso();return DATA.days.find(function(d){return d.iso===t;})||DATA.days[0];}
@@ -248,8 +249,9 @@ function attach(){
   });
 }
 
-// Nav listeners and render — called after unlock
+// Nav listeners and render — called after unlock (DATA is guaranteed loaded)
 function initApp(){
+  DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});
   document.querySelectorAll('.navbtn').forEach(function(b){
     b.addEventListener('click',function(){
       state.page=b.dataset.page;state.expandedKey=null;
@@ -291,22 +293,22 @@ function initApp(){
   var lockEl=document.getElementById('lockscreen');
   var appEl=document.getElementById('app');
 
-  function revealApp(){
+  async function revealApp(){
     sessionStorage.setItem('unlocked','1');
     lockEl.classList.add('unlocking');
-    setTimeout(function(){
-      lockEl.style.display='none';
-      appEl.style.display='';
-      initApp();
-    },360);
+    await dataReady;
+    lockEl.style.display='none';
+    appEl.style.display='';
+    initApp();
   }
 
   // Skip lock if already unlocked in this tab session
   if(sessionStorage.getItem('unlocked')==='1'){
-    lockEl.style.display='none';
-    appEl.style.display='';
-    // initApp must run after DOM is ready; we're in a script at end of body so it's fine
-    initApp();
+    dataReady.then(function(){
+      lockEl.style.display='none';
+      appEl.style.display='';
+      initApp();
+    });
     return;
   }
 
