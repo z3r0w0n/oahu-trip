@@ -14,7 +14,6 @@ var state={page:'today',dayIso:null,expandedKey:null,foodFilter:'all',
 function todayIso(){var d=new Date(),s=d.toISOString().slice(0,10);var days=DATA.days;if(s<days[0].iso)return days[0].iso;if(s>days[days.length-1].iso)return days[days.length-1].iso;return s;}
 function currentDay(){var t=state.dayIso||todayIso();return DATA.days.find(function(d){return d.iso===t;})||DATA.days[0];}
 
-// Map each event to one of 7 display categories
 function categoryFor(e){
   var cat=e.category||'';
   var ic=(e.icon||'').replace('ti-','');
@@ -32,22 +31,21 @@ function categoryFor(e){
 
 var CAT_LABELS={transit:'✈ Transit',food:'🍜 Food & Drink',activity:'🏄 Activity',culture:'🏛 Culture',rest:'🛏 Rest',task:'🛒 Errand',urgent:'⚠ Urgent'};
 
-// Render helpers
-function hintsFor(e){
-  var h=[];
-  if(e.outfit) h.push('<span class="hint h-outfit">'+icon('shirt',12)+' Outfit</span>');
-  if(e.weather) h.push('<span class="hint h-weather">'+icon('cloud',12)+' Weather</span>');
-  if(e.alternates&&e.alternates.length) h.push('<span class="hint h-alt">'+icon('replace',12)+' Alternatives</span>');
+function pillsFor(e,evCat){
+  var items='<span class="cat-pill">'+CAT_LABELS[evCat]+'</span>';
+  if(e.outfit) items+='<span class="hint h-outfit">'+icon('shirt',12)+' Outfit</span>';
+  if(e.weather) items+='<span class="hint h-weather">'+icon('cloud',12)+' Weather</span>';
+  if(e.alternates&&e.alternates.length) items+='<span class="hint h-alt">'+icon('replace',12)+' Alternatives</span>';
   if(e.badge){
     var bc='h-note';
     if(e.badge==='Gentle pace') bc='h-gentle';
     else if(e.badge==='Do this NOW'||e.badge==='Urgent') bc='h-urgent';
     else if(e.badge==='Pre-booked'||e.badge==='Book ahead') bc='h-book';
     else if(e.badge==='Optional') bc='h-optional';
-    h.push('<span class="hint '+bc+'">'+icon('info-circle',12)+' '+e.badge+'</span>');
+    items+='<span class="hint '+bc+'">'+icon('info-circle',12)+' '+e.badge+'</span>';
   }
-  if(e.optional&&!e.badge) h.push('<span class="hint h-optional">'+icon('info-circle',12)+' Optional</span>');
-  return h.length?'<div class="hintrow">'+h.join('')+'</div>':'';
+  if(e.optional&&!e.badge) items+='<span class="hint h-optional">'+icon('info-circle',12)+' Optional</span>';
+  return '<div class="hintrow">'+items+'</div>';
 }
 
 function renderEvent(e,i,dayIso){
@@ -79,8 +77,7 @@ function renderEvent(e,i,dayIso){
     +(hasDetails?'<div class="evchev">'+icon('chevron-down',16)+'</div>':'')
     +'</div>'
     +(e.details?'<div class="evdesc">'+e.details+'</div>':'')
-    +'<div class="cat-pill">'+CAT_LABELS[evCat]+'</div>'
-    +hintsFor(e)
+    +pillsFor(e,evCat)
     +details
     +'</div></div>';
 }
@@ -94,9 +91,7 @@ function renderToday(){
     var dateShort=d.date.split(' ').slice(1).join(' ');
     return '<button class="'+cls+'" data-iso="'+d.iso+'">'+lab+'<span class="chipdate">'+dateShort+'</span></button>';
   }).join('');
-
   var events=day.events.map(function(e,i){return renderEvent(e,i,day.iso);}).join('');
-
   return '<div class="page active th-'+day.color+'" id="pg-today">'
     +'<div class="daypicker" id="dpicker">'+chips+'</div>'
     +'<div class="hero">'
@@ -126,7 +121,6 @@ function renderTrip(){
     +'<div class="metastat"><div class="mlbl">Car · Hertz</div><div class="mval">7 days</div><div class="msub">$251 weekly</div></div>'
     +'<div class="metastat"><div class="mlbl">Pickup</div><div class="mval">May 12</div><div class="msub">Hyatt Regency</div></div>'
     +'</div>';
-
   var contacts=DATA.quickContacts.map(function(c){
     var iconName=c.icon.replace('ti-','');
     return '<div class="contactbtn"'+(c.phone?' onclick="window.location.href=\'tel:'+c.phone+'\'">':'>') 
@@ -134,7 +128,6 @@ function renderTrip(){
       +'<div class="ct">'+c.name+(c.phone?'<small>'+c.phone+'</small>':'')+'</div>'
       +'</div>';
   }).join('');
-
   var cards=DATA.days.map(function(d,i){
     return '<div class="daycard th-'+d.color+'" data-jump="'+d.iso+'">'
       +'<div class="dcnum">'+(i+1)+'<small>'+d.date.split(' ').slice(1).join(' ')+'</small></div>'
@@ -143,7 +136,6 @@ function renderTrip(){
       +'<div class="dcarrow">'+icon('chevron-right',16)+'</div>'
       +'</div>';
   }).join('');
-
   return '<div class="page active" id="pg-trip">'
     +'<div class="trip-hero"><h1>Aloha,<br><em>Oahu</em></h1>'
     +'<p class="dates">May 11 — 19, 2026</p></div>'
@@ -231,11 +223,9 @@ function render(){
 }
 
 function attach(){
-  // Day picker
   document.querySelectorAll('.daychip').forEach(function(c){
     c.addEventListener('click',function(){state.dayIso=c.dataset.iso;state.expandedKey=null;render();});
   });
-  // Timeline events
   document.querySelectorAll('.tl-event').forEach(function(el){
     el.addEventListener('click',function(){
       var k=el.dataset.key;
@@ -244,7 +234,6 @@ function attach(){
       if(state.expandedKey===k) setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'nearest'});},280);
     });
   });
-  // Bookings
   document.querySelectorAll('.bookcard').forEach(function(el){
     el.addEventListener('click',function(){
       var k=el.dataset.booking;
@@ -252,7 +241,6 @@ function attach(){
       localStorage.setItem('bd',JSON.stringify([...state.booksDone]));render();
     });
   });
-  // Costco
   document.querySelectorAll('.costoitem').forEach(function(el){
     el.addEventListener('click',function(){
       var k=el.dataset.costco;
@@ -260,17 +248,14 @@ function attach(){
       localStorage.setItem('ck',JSON.stringify([...state.costcoChecked]));render();
     });
   });
-  // Food filter
   document.querySelectorAll('.fchip').forEach(function(c){
     c.addEventListener('click',function(){state.foodFilter=c.dataset.filter;render();});
   });
-  // Day card jump
   document.querySelectorAll('.daycard').forEach(function(c){
     c.addEventListener('click',function(){state.dayIso=c.dataset.jump;state.page='today';render();});
   });
 }
 
-// Nav listeners and render — called after unlock (DATA is guaranteed loaded)
 function initApp(){
   DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});
   document.querySelectorAll('.navbtn').forEach(function(b){
@@ -280,7 +265,6 @@ function initApp(){
       render();
     });
   });
-
   var overlay=document.getElementById('overlay'),sheet=document.getElementById('msheet');
   document.getElementById('menubtn').addEventListener('click',function(){overlay.classList.add('open');sheet.classList.add('open');});
   overlay.addEventListener('click',function(){overlay.classList.remove('open');sheet.classList.remove('open');});
@@ -293,11 +277,9 @@ function initApp(){
       overlay.classList.remove('open');sheet.classList.remove('open');
     });
   });
-
   render();
 }
 
-// PIN LOCK — SHA-256 hash of "1091" (no plaintext PIN stored)
 (function(){
   var PIN_HASH='11bde34a6593b3da0d81a8a71b24dc6f6cf05d18e9f59e610e58ff202263adef';
 
@@ -322,7 +304,6 @@ function initApp(){
     initApp();
   }
 
-  // If already unlocked in this tab session, try to skip straight to app
   if(sessionStorage.getItem('unlocked')==='1'){
     dataReady.then(function(){
       lockEl.style.display='none';
@@ -331,7 +312,7 @@ function initApp(){
     }).catch(function(){
       sessionStorage.removeItem('unlocked');
     });
-    // intentionally no return — always attach PIN listeners below as fallback
+    // intentionally no return — always attach PIN listeners below
   }
 
   function updateDots(){
@@ -360,9 +341,7 @@ function initApp(){
       } else {
         wrongPin();
       }
-    }).catch(function(){
-      wrongPin();
-    });
+    }).catch(function(){ wrongPin(); });
   }
 
   document.querySelectorAll('.pin-key[data-n]').forEach(function(btn){
