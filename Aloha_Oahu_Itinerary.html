@@ -307,7 +307,6 @@ border-bottom:.5px solid var(–line-soft);cursor:pointer;font-size:14.5px;
 padding:28px 18px 14px;font-family:var(–serif);font-style:italic}
 
 /* PIN LOCK SCREEN */
-body.locked{overflow:hidden;height:100vh;position:fixed;width:100%}
 #lockscreen{
 position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;
 background:var(–bg);
@@ -401,6 +400,7 @@ opacity:0;transition:opacity .2s}
   </div>
 </div>
 
+<div id="app" style="display:none">
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand"><div class="brand-pip"></div> Aloha · Oahu</div>
@@ -420,6 +420,7 @@ opacity:0;transition:opacity .2s}
     <li class="menuitem" data-action="about"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 9h.01"/><path d="M11 12h1v4h1"/></svg> About this app</li>
   </ul>
 </div>
+</div><!-- /#app -->
 
 <script>
 const ICONS = {
@@ -734,30 +735,31 @@ function attach(){
   });
 }
 
-// Nav
-document.querySelectorAll('.navbtn').forEach(function(b){
-  b.addEventListener('click',function(){
-    state.page=b.dataset.page;state.expandedKey=null;
-    if(b.dataset.page==='today') state.dayIso=null;
-    render();
+// Nav listeners and render — called after unlock
+function initApp(){
+  document.querySelectorAll('.navbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      state.page=b.dataset.page;state.expandedKey=null;
+      if(b.dataset.page==='today') state.dayIso=null;
+      render();
+    });
   });
-});
 
-// Menu
-var overlay=document.getElementById('overlay'),sheet=document.getElementById('msheet');
-document.getElementById('menubtn').addEventListener('click',function(){overlay.classList.add('open');sheet.classList.add('open');});
-overlay.addEventListener('click',function(){overlay.classList.remove('open');sheet.classList.remove('open');});
-document.querySelectorAll('.menuitem').forEach(function(it){
-  it.addEventListener('click',function(){
-    var a=it.dataset.action;
-    if(a==='reset-costco'){if(confirm('Reset Costco list?')){state.costcoChecked.clear();localStorage.setItem('ck','[]');render();}}
-    else if(a==='reset-bookings'){if(confirm('Reset bookings?')){state.booksDone.clear();DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});localStorage.setItem('bd',JSON.stringify([...state.booksDone]));render();}}
-    else if(a==='about'){alert('Aloha! 🌺\nYour Oahu itinerary · works offline\nProgress saves to your device.');}
-    overlay.classList.remove('open');sheet.classList.remove('open');
+  var overlay=document.getElementById('overlay'),sheet=document.getElementById('msheet');
+  document.getElementById('menubtn').addEventListener('click',function(){overlay.classList.add('open');sheet.classList.add('open');});
+  overlay.addEventListener('click',function(){overlay.classList.remove('open');sheet.classList.remove('open');});
+  document.querySelectorAll('.menuitem').forEach(function(it){
+    it.addEventListener('click',function(){
+      var a=it.dataset.action;
+      if(a==='reset-costco'){if(confirm('Reset Costco list?')){state.costcoChecked.clear();localStorage.setItem('ck','[]');render();}}
+      else if(a==='reset-bookings'){if(confirm('Reset bookings?')){state.booksDone.clear();DATA.bookings.forEach(function(b){if(b.done)state.booksDone.add(b.what);});localStorage.setItem('bd',JSON.stringify([...state.booksDone]));render();}}
+      else if(a==='about'){alert('Aloha! 🌺\nYour Oahu itinerary · works offline\nProgress saves to your device.');}
+      overlay.classList.remove('open');sheet.classList.remove('open');
+    });
   });
-});
 
-render();
+  render();
+}
 
 // PIN LOCK
 (function(){
@@ -767,6 +769,7 @@ render();
   var errorEl=document.getElementById('lockError');
   var dotsWrap=document.getElementById('pinDots');
   var lockEl=document.getElementById('lockscreen');
+  var appEl=document.getElementById('app');
 
   function updateDots(){
     dots.forEach(function(d,i){
@@ -789,7 +792,11 @@ render();
   function tryUnlock(){
     if(entered===PIN){
       lockEl.classList.add('unlocking');
-      setTimeout(function(){ lockEl.style.display='none'; },360);
+      setTimeout(function(){
+        lockEl.style.display='none';
+        appEl.style.display='';
+        initApp();
+      },360);
     } else {
       wrongPin();
     }
