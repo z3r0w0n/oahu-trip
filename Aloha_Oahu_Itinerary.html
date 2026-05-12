@@ -307,12 +307,15 @@ border-bottom:.5px solid var(–line-soft);cursor:pointer;font-size:14.5px;
 padding:28px 18px 14px;font-family:var(–serif);font-style:italic}
 
 /* PIN LOCK SCREEN */
+body.locked{overflow:hidden;height:100vh;position:fixed;width:100%}
 #lockscreen{
-position:fixed;inset:0;z-index:9999;
+position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;
 background:var(–bg);
 display:flex;flex-direction:column;align-items:center;justify-content:center;
 padding:32px 24px calc(32px + env(safe-area-inset-bottom));
 transition:opacity .35s ease, transform .35s ease;
+overflow:hidden;
+touch-action:none;
 }
 #lockscreen.unlocking{opacity:0;transform:scale(1.04);pointer-events:none}
 .lock-icon{
